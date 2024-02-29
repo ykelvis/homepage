@@ -102,7 +102,7 @@ export async function servicesFromDocker() {
             }
           });
 
-          if (!constructedService.name || !constructedService.group) {
+          if (constructedService && (!constructedService.name || !constructedService.group)) {
             logger.error(
               `Error constructing service using homepage labels for container '${containerName.replace(
                 /^\//,
@@ -325,7 +325,7 @@ export async function servicesFromKubernetes() {
 
     return mappedServiceGroups;
   } catch (e) {
-    logger.error(e);
+    if (e) logger.error(e);
     throw e;
   }
 }
@@ -378,6 +378,7 @@ export function cleanServiceGroups(groups) {
 
           // customapi
           mappings,
+          display,
 
           // diskstation
           volume,
@@ -394,9 +395,13 @@ export function cleanServiceGroups(groups) {
           chart,
           metric,
           pointsLimit,
+          diskUnits,
 
           // glances, customapi, iframe
           refreshInterval,
+
+          // hdhomerun
+          tuner,
 
           // healthchecks
           uuid,
@@ -426,6 +431,9 @@ export function cleanServiceGroups(groups) {
           // openmediavault
           method,
 
+          // openwrt
+          interfaceName,
+
           // opnsense, pfsense
           wan,
 
@@ -434,6 +442,9 @@ export function cleanServiceGroups(groups) {
 
           // sonarr, radarr
           enableQueue,
+
+          // truenas
+          enablePools,
 
           // unifi
           site,
@@ -504,6 +515,9 @@ export function cleanServiceGroups(groups) {
         if (["sonarr", "radarr"].includes(type)) {
           if (enableQueue !== undefined) cleanedService.widget.enableQueue = JSON.parse(enableQueue);
         }
+        if (type === "truenas") {
+          if (enablePools !== undefined) cleanedService.widget.enablePools = JSON.parse(enablePools);
+        }
         if (["diskstation", "qnap"].includes(type)) {
           if (volume) cleanedService.widget.volume = volume;
         }
@@ -520,6 +534,7 @@ export function cleanServiceGroups(groups) {
           }
           if (refreshInterval) cleanedService.widget.refreshInterval = refreshInterval;
           if (pointsLimit) cleanedService.widget.pointsLimit = pointsLimit;
+          if (diskUnits) cleanedService.widget.diskUnits = diskUnits;
         }
         if (type === "mjpeg") {
           if (stream) cleanedService.widget.stream = stream;
@@ -528,8 +543,12 @@ export function cleanServiceGroups(groups) {
         if (type === "openmediavault") {
           if (method) cleanedService.widget.method = method;
         }
+        if (type === "openwrt") {
+          if (interfaceName) cleanedService.widget.interfaceName = interfaceName;
+        }
         if (type === "customapi") {
           if (mappings) cleanedService.widget.mappings = mappings;
+          if (display) cleanedService.widget.display = display;
           if (refreshInterval) cleanedService.widget.refreshInterval = refreshInterval;
         }
         if (type === "calendar") {
@@ -540,6 +559,9 @@ export function cleanServiceGroups(groups) {
           if (previousDays) cleanedService.widget.previousDays = previousDays;
           if (showTime) cleanedService.widget.showTime = showTime;
           if (timezone) cleanedService.widget.timezone = timezone;
+        }
+        if (type === "hdhomerun") {
+          if (tuner !== undefined) cleanedService.widget.tuner = tuner;
         }
         if (type === "healthchecks") {
           if (uuid !== undefined) cleanedService.widget.uuid = uuid;

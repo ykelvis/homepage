@@ -41,15 +41,17 @@ See the [pre-commit documentation](https://pre-commit.com/#install) to get start
 
 ## New Feature Guidelines
 
-- New features should be linked to an existing feature request with at least 5 'up-votes'. The purpose of this requirement is to avoid the addition (and maintenance) of features that might only benefit a small number of users.
+- New features should be linked to an existing feature request with at least 10 'up-votes'. The purpose of this requirement is to avoid the addition (and maintenance) of features that might only benefit a small number of users.
 - If you have ideas for a larger feature, please open a discussion first.
+- Please note that though it is a requirement, a discussion with 10 'up-votes' in no way guarantees that a PR will be merged.
 
 ## Service Widget Guidelines
 
 To ensure cohesiveness of various widgets, the following should be used as a guide for developing new widgets:
 
-- Please only submit widgets that have been requested and have at least 5 'up-votes'. The purpose of this requirement is to avoid the addition (and maintenance) of service widgets that might only benefit a small number of users.
+- Please only submit widgets that have been requested and have at least 10 'up-votes'. The purpose of this requirement is to avoid the addition (and maintenance) of service widgets that might only benefit a small number of users.
 - Widgets should be only one row of blocks
-- Widgets should be no more than 4 blocks wide
+- Widgets should be no more than 4 blocks wide and generally conform to the styling / design choices of other widgets
 - Minimize the number of API calls
 - Avoid the use of custom proxy unless absolutely necessary
+- Widgets should be 'read-only', as in they should not make write changes using the relevant tool's API. Homepage widgets are designed to surface information, not to be a (usually worse) replacement for the tool itself.

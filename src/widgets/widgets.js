@@ -23,7 +23,9 @@ import flood from "./flood/widget";
 import freshrss from "./freshrss/widget";
 import fritzbox from "./fritzbox/widget";
 import gamedig from "./gamedig/widget";
+import gatus from "./gatus/widget";
 import ghostfolio from "./ghostfolio/widget";
+import gitea from "./gitea/widget";
 import glances from "./glances/widget";
 import gluetun from "./gluetun/widget";
 import gotify from "./gotify/widget";
@@ -62,6 +64,7 @@ import opendtu from "./opendtu/widget";
 import opnsense from "./opnsense/widget";
 import overseerr from "./overseerr/widget";
 import openmediavault from "./openmediavault/widget";
+import openwrt from "./openwrt/widget";
 import paperlessngx from "./paperlessngx/widget";
 import peanut from "./peanut/widget";
 import pfsense from "./pfsense/widget";
@@ -69,6 +72,7 @@ import photoprism from "./photoprism/widget";
 import proxmoxbackupserver from "./proxmoxbackupserver/widget";
 import pialert from "./pialert/widget";
 import pihole from "./pihole/widget";
+import plantit from "./plantit/widget";
 import plex from "./plex/widget";
 import portainer from "./portainer/widget";
 import prometheus from "./prometheus/widget";
@@ -85,6 +89,7 @@ import sabnzbd from "./sabnzbd/widget";
 import scrutiny from "./scrutiny/widget";
 import sonarr from "./sonarr/widget";
 import speedtest from "./speedtest/widget";
+import stash from "./stash/widget";
 import strelaysrv from "./strelaysrv/widget";
 import tailscale from "./tailscale/widget";
 import tautulli from "./tautulli/widget";
@@ -128,7 +133,9 @@ const widgets = {
   freshrss,
   fritzbox,
   gamedig,
+  gatus,
   ghostfolio,
+  gitea,
   glances,
   gluetun,
   gotify,
@@ -169,6 +176,7 @@ const widgets = {
   opnsense,
   overseerr,
   openmediavault,
+  openwrt,
   paperlessngx,
   peanut,
   pfsense,
@@ -176,6 +184,7 @@ const widgets = {
   proxmoxbackupserver,
   pialert,
   pihole,
+  plantit,
   plex,
   portainer,
   prometheus,
@@ -193,6 +202,7 @@ const widgets = {
   scrutiny,
   sonarr,
   speedtest,
+  stash,
   strelaysrv,
   tailscale,
   tautulli,
